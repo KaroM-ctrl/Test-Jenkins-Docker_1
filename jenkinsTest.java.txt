@@ -1,0 +1,20 @@
+import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.GenericContainer;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class JenkinsTest {
+
+    @Test
+    public void testJenkinsStarts() {
+        try (GenericContainer<?> jenkins = new GenericContainer<>("jenkins/jenkins:lts")
+                .withExposedPorts(8080)) {
+            jenkins.start();
+
+            String address = "http://" + jenkins.getHost() + ":" + jenkins.getMappedPort(8080);
+            System.out.println("Jenkins is running at: " + address);
+
+            assertTrue(jenkins.isRunning());
+        }
+    }
+}

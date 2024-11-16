@@ -1,0 +1,7 @@
+<dependencies>
+    <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>testcontainers</artifactId>
+        <version>1.19.0</version>
+    </dependency>
+</dependencies>
